@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: alter-companies-table
+      author: azhabko
+      changes:
+        - addColumn:
+            schemaName: warehouse
+            tableName: companies
+            columns:
+              - column:
+                  name: countryId
+                  type: bigint
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: company_cuntry_foreign_key
+            baseTableSchemaName: warehouse
+            baseTableName: companies
+            baseColumnNames: countryId
+            referencedTableSchemaName: warehouse
+            referencedTableName: countries
+            referencedColumnNames: id
