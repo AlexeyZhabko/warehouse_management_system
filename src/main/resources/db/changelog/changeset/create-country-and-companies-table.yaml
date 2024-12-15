@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-sellers-table
+      author: azhabko
+      changes:
+        - createTable:
+            schemaName: warehouse
+            tableName: Countries
+            columns:
+              - column:
+                  name: id
+                  autoIncrement: true
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    unique: true
+                    nullable: true
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    unique: true
+                    nullable: false
+        - createTable:
+            schemaName: warehouse
+            tableName: Companies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    unique: true
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: countryId
+                  type: bigint
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            constraintName: companies_country_foreign_key
+            referencedTableSchemaName: warehouse
+            referencedTableName: Countries
+            referencedColumnNames: id
+            baseTableSchemaName: warehouse
+            baseTableName: Companies
+            baseColumnNames: countryId
+            onDelete: set null
+            onUpdate: cascade
