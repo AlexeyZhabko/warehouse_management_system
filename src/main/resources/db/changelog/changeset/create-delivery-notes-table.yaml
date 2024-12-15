@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-delivery-notes-table
+      author: azhabko
+      changes:
+        - createTable:
+            schemaName: warehouse
+            tableName: DeliveryNotes
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    unique: true
+              - column:
+                  name: sellerId
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customerId
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: totalPrice
+                  type: bigint
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: delivery_notes_seller_foreign_key
+            baseTableSchemaName: warehouse
+            baseTableName: DeliveryNotes
+            baseColumnNames: sellerId
+            referencedTableSchemaName: warehouse
+            referencedTableName: Countries
+            referencedColumnNames: id
+            onDelete: set null
+            onUpdate: cascade
+        - addForeignKeyConstraint:
+            constraintName: delivery_notes_customer_foreign_key
+            baseTableSchemaName: warehouse
+            baseTableName: DeliveryNotes
+            baseColumnNames: sellerId
+            referencedTableSchemaName: warehouse
+            referencedTableName: Countries
+            referencedColumnNames: id
+            onDelete: set null
+            onUpdate: cascade

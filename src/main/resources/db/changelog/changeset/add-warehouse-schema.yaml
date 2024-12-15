@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-warehouse-schema
+      author: azhabko
+      changes:
+        - sql:
+            create schema warehouse

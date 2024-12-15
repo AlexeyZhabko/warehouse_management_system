@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  postgres:
+    container_name: warehouse_postgres
+    image: postgres:17
+    ports:
+      - 5432:5432
+    environment:
+    - POSTGRES_PASSWORD=superuserpassword
+    - POSTGRES_USER=azhabko
+    volumes:
+    - /data/db:/var/lib/postgresql/data
+    restart: unless-stopped
+  redis:
+    container_name: warehouse_redis
+    image: redis:7.4
+    ports:
+       - 6379:6379
+    restart: unless-stopped
