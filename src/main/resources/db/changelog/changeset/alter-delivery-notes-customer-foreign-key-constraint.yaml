@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: alter-delivery-notes-customer-foreign-key-constraint
+      author: azhabko
+      changes:
+        - dropForeignKeyConstraint:
+            baseTableSchemaName: warehouse
+            baseTableName: delivery_notes
+            constraintName: delivery_notes_customer_foreign_key
+        - addForeignKeyConstraint:
+            constraintName: delivery_notes_customer_foreign_key
+            baseTableSchemaName: warehouse
+            baseTableName: delivery_notes
+            baseColumnNames: customer_id
+            referencedTableSchemaName: warehouse
+            referencedTableName: countries
+            referencedColumnNames: id
+            onDelete: set null
+            onUpdate: cascade

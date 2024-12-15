@@ -5,7 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             schemaName: warehouse
-            tableName: Countries
+            tableName: countries
             columns:
               - column:
                   name: id
@@ -23,7 +23,7 @@ databaseChangeLog:
                     nullable: false
         - createTable:
             schemaName: warehouse
-            tableName: Companies
+            tableName: companies
             columns:
               - column:
                   name: id
@@ -40,17 +40,17 @@ databaseChangeLog:
                     unique: true
                     nullable: false
               - column:
-                  name: countryId
+                  name: country_id
                   type: bigint
                   constraints:
                     nullable: true
         - addForeignKeyConstraint:
             constraintName: companies_country_foreign_key
             referencedTableSchemaName: warehouse
-            referencedTableName: Countries
+            referencedTableName: countries
             referencedColumnNames: id
             baseTableSchemaName: warehouse
-            baseTableName: Companies
-            baseColumnNames: countryId
+            baseTableName: companies
+            baseColumnNames: country_id
             onDelete: set null
             onUpdate: cascade

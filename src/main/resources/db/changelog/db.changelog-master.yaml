@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changelog/changeset/create-country-and-companies-table.yaml
   - include:
       file: db/changelog/changeset/create-delivery-notes-table.yaml
+  - include:
+      file: db/changelog/changeset/alter-delivery-notes-customer-foreign-key-constraint.yaml

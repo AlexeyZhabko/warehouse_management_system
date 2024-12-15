@@ -5,7 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             schemaName: warehouse
-            tableName: DeliveryNotes
+            tableName: delivery_notes
             columns:
               - column:
                   name: id
@@ -16,37 +16,37 @@ databaseChangeLog:
                     primaryKey: true
                     unique: true
               - column:
-                  name: sellerId
+                  name: seller_id
                   type: bigint
                   constraints:
                     nullable: false
               - column:
-                  name: customerId
+                  name: customer_id
                   type: bigint
                   constraints:
                     nullable: false
               - column:
-                  name: totalPrice
+                  name: total_price
                   type: bigint
                   constraints:
                     nullable: false
         - addForeignKeyConstraint:
             constraintName: delivery_notes_seller_foreign_key
             baseTableSchemaName: warehouse
-            baseTableName: DeliveryNotes
-            baseColumnNames: sellerId
+            baseTableName: delivery_notes
+            baseColumnNames: seller_id
             referencedTableSchemaName: warehouse
-            referencedTableName: Countries
+            referencedTableName: countries
             referencedColumnNames: id
             onDelete: set null
             onUpdate: cascade
         - addForeignKeyConstraint:
             constraintName: delivery_notes_customer_foreign_key
             baseTableSchemaName: warehouse
-            baseTableName: DeliveryNotes
-            baseColumnNames: sellerId
+            baseTableName: delivery_notes
+            baseColumnNames: seller_id
             referencedTableSchemaName: warehouse
-            referencedTableName: Countries
+            referencedTableName: countries
             referencedColumnNames: id
             onDelete: set null
             onUpdate: cascade
