@@ -18,7 +18,7 @@ public class CountryEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "countries_id_gen")
-  @SequenceGenerator(name = "countries_id_gen", sequenceName = "countries_id_seq", allocationSize = 1)
+  @SequenceGenerator(name = "countries_id_gen", sequenceName = "warehouse.countries_id_seq", allocationSize = 1)
   @Column(name = "id", nullable = false)
   private Long id;
 
