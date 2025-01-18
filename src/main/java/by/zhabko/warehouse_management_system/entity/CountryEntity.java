@@ -8,11 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "countries", schema = "warehouse")
 public class CountryEntity {
 
@@ -25,4 +28,7 @@ public class CountryEntity {
   @Column(name = "name", nullable = false, length = 200)
   private String name;
 
+  public CountryEntity(String name) {
+    this.name = name;
+  }
 }
