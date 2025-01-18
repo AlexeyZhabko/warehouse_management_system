@@ -9,3 +9,5 @@ databaseChangeLog:
       file: db/changelog/changeset/alter-delivery-notes-customer-foreign-key-constraint.yaml
   - include:
       file: db/changelog/changeset/add-delivery-notes-items-table.yaml
+  - include:
+      file: db/changelog/changeset/alter-delivery-notes-company-foreign-key-constraint.yaml

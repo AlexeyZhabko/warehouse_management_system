@@ -1,4 +1,4 @@
-package by.zhabko.warehouse_management_system.entity;
+package by.zhabko.warehouse_management_system.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,12 +18,12 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 @Setter
 @Getter
-@Table(name = "Companies", schema = "warehouse")
+@Table(name = "companies", schema = "warehouse")
 public class CompanyEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Companies_id_gen")
-  @SequenceGenerator(name = "Companies_id_gen", sequenceName = "Companies_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companies_id_gen")
+  @SequenceGenerator(name = "companies_id_gen", sequenceName = "warehouse.companies_id_seq", allocationSize = 1)
   @Column(name = "id", nullable = false)
   private Long id;
 

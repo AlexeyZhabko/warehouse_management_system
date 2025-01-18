@@ -1,6 +1,6 @@
 package by.zhabko.warehouse_management_system.configuration;
 
-import by.zhabko.warehouse_management_system.entity.CountryEntity;
+import by.zhabko.warehouse_management_system.model.entity.CountryEntity;
 import by.zhabko.warehouse_management_system.repository.postgres.CountryRepository;
 import java.util.stream.Stream;
 import org.springframework.boot.CommandLineRunner;
