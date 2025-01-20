@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-delivery-notes-table
+      author: azhabko
+      changes:
+        - createTable:
+            schemaName: warehouse
+            tableName: delivery_notes_items
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    unique: true
+                    nullable: false
+              - column:
+                  name: delivery_note_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: bigint
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: delivery_note_item_delivery_note_id_foreign_key
+            baseTableSchemaName: warehouse
+            baseTableName: delivery_notes_items
+            baseColumnNames: delivery_note_id
+            referencedTableSchemaName: warehouse
+            referencedTableName: delivery_notes
+            referencedColumnNames: id
